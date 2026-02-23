@@ -1,0 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/11 13:46:40 by rlobun            #+#    #+#             */
+/*   Updated: 2026/02/17 10:48:24 by rlobun           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "app.hpp"
+
+PhoneBook::PhoneBook(void) {
+	_contacts_count = 0;
+	Contact _contacts[8];
+}
+
+PhoneBook::~PhoneBook(void) {
+}
+
+void	PhoneBook::welcome (void) {
+	std::cout << "      ╔═══════════════════════════════════════╗   " << std::endl;
+	std::cout << "╔═════╣	 C R A P P Y   P H O N E B O O K    ╠═════╗" << std::endl;
+	std::cout << "║     ╚═══════════════════════════════════════╝     ║" << std::endl;
+	std::cout << "║                                                   ║" << std::endl;
+	std::cout << "║  Enter one of commands available:                 ║" << std::endl;
+	std::cout << "║                                                   ║" << std::endl;
+	std::cout << "║  ADD    -  add contact                            ║" << std::endl;
+	std::cout << "║  SEARCH -  search contact                         ║" << std::endl;
+	std::cout << "║  EXIT   -  quit the Crappy Phonebook              ║" << std::endl;
+	std::cout << "╚═══════════════════════════════════════════════════╝" << std::endl;
+	std::cout << std::endl;
+}
