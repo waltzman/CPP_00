@@ -8,16 +8,16 @@ OBJS = $(SRCS:.cpp=.o)
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CPP) $(CPP_FLAGS) -o $@ $^
+	@$(CPP) $(CPP_FLAGS) -o $@ $^
 
 %.o: %.cpp
-	$(CPP) $(CPP_FLAGS) -c $< -o $@
+	@$(CPP) $(CPP_FLAGS) -c $< -o $@
 
 clean:
-	@rm -r $(OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
-	@rm -r $(TARGET)
+	@rm -f $(TARGET)
 
 re: fclean all
 

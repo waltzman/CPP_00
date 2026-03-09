@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:46:36 by rlobun            #+#    #+#             */
-/*   Updated: 2026/02/18 15:38:45 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/02/24 11:31:15 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ std::string Contact::getPhoneNumber(void) const {
 
 }
 time_t		Contact::getTimeCreated(void) const {
-	return (this-> _phoneNumber);
+	return (this-> _timeCreated);
 }
 
 // **********   SETTERS   **********
