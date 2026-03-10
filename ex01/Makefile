@@ -2,7 +2,7 @@ CPP = c++
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 TARGET = PhoneBook
 INC = app.hpp
-SRCS = main.cpp Contact.cpp PhoneBook.cpp
+SRCS = main.cpp Contact.cpp PhoneBook.cpp utils.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(TARGET)

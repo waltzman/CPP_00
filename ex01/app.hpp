@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 11:13:20 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/09 11:12:48 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/10 16:20:12 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,28 @@
 
 // COLORS
 
-#define RESET		"\033[0m"
-#define BLUE		"\033[34m"
-#define YELLOW  	"\033[33m"
-#define GREEN   	"\033[32m"
-#define RED     	"\033[31m"
-#define MAGENTA		"\033[35m"
-#define L_CYAN		"\033[36m"
+#define RESET			"\033[0m"
+#define BLUE			"\033[34m"
+#define YELLOW			"\033[33m"
+#define GREEN			"\033[32m"
+#define RED				"\033[31m"
+#define MAGENTA			"\033[35m"
+#define L_CYAN			"\033[36m"
 
 // BLINK
 
-#define BLINK		"\033[5m"
-#define RESET_BLINK	"\033[25m"
+#define BLINK			"\033[5m"
+#define RESET_BLINK		"\033[25m"
 
 // BOLD
 
-#define BOLD		"\033[1m"
-#define RESET_BOLD	"\033[21m"
+#define BOLD			"\033[1m"
+#define RESET_BOLD		"\033[22m"
+
+// ITALIC
+
+#define ITALIC			"\033[3m"
+#define RESET_ITALIC	"\033[23m"
 
 #include <string>
 #include <sstream>
@@ -46,4 +51,10 @@
 #define ALT_BUFFER "\033[?1049h"
 #define DISABLE_ALT_BUFFER "\033[?1049l"
 
+void displayHeader(void);
+void displayOption(void); 
+void displayMenu(void);
+
+std::string normalizeInput(const std::string& input);
+void clearScreenANSI(void);
 #endif
