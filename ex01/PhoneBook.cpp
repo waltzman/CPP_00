@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:46:40 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/10 16:19:22 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/12 12:21:56 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,14 @@ int PhoneBook::getContactsCount(void) {
 	return this->_contactsCount;
 }
 
+void cppPrintError(std::string message) {
+	std::cout << std::endl;
+	std::cout << RED BOLD;
+	std::cout << " Error: " << message;
+	std::cout << RESET << std::endl;
+}
 void getInput(bool& ok, std::string& field, std::string message) {
-	std::cout << Enter << message << ": ");
+	std::cout << " Enter " << message << ": ";
 	std::getline(std::cin, field, '\n');
 	field = normalizeInput(field);
 	if (field.empty()) {
@@ -41,65 +47,58 @@ void PhoneBook::addContact(void) {
 	std::string nickName;
 	std::string secret;
 	std::string::size_type i = 0;
-	int index = 0;
+	//int index = 0;
 	bool ok = true;
 
-	/* if (fName.empty()) {
-		std::cout << RED << "Error: empty field" << RESET << std::endl;
-		return ;
-	} 
-	while (i < fName.size())
-	{
-		unsigned char c = s[i];
-		if (!std::isalpha(c) && !std::isspace(c)) {
-			ok = false;
-			break ;
-		}
-		i++;
-	} */ 
-
+	std::cout << std::endl;
 	getInput(ok, fName, "first name");
 	getInput(ok, lName, "last name");
-	getInput(ok, nickName, "nick name");
-	getInput(ok, phone, "first name");
-	getInput(ok, fName, "first name");
-	if (!ok) {
-		std::cout << RED << "Error: empty field" << RESET << std::endl;
+	getInput(ok, nickName, "nickname");
+	getInput(ok, phone, "phone number");
+	getInput(ok, secret, "darkest secret");
+
+	if (!ok) 
+	{
+		cppPrintError("empty field");
 		return ;
 	}
+
 	while(i < fName.size()) {
 		unsigned char c = fName[i];
 		if (!std::isalpha(c) && !std::isspace(c)) {
-			std::cout << RED << "Error: you entered non alphabetic characters'" << RESET << std::endl;
+			cppPrintError("you entered non alphabetic characters in first name field");
 			return ;
 		}
 		i++;
 	}
+
 	i = 0;
 	while(i < lName.size()) {
 		unsigned char c = lName[i];
 		if (!std::isalpha(c) && !std::isspace(c)) {
-			std::cout << RED << "Error: you entered non alphabetic characters'" << RESET << std::endl;
+			cppPrintError("you entered non alphabetic characters in last name field");
 			return ;
 		}
 		i++;
 	}
+
 	i = 0;
 	while (i < nickName.size())
 	{
-		unsigned char c = nickName[i]);
+		unsigned char c = nickName[i];
 		if (std::isspace(c)) {
-			std::cout << RED << "Error: nickname cannot contain spaces" << RESET << std::endl;
+			cppPrintError("nickname cannot contain spaces");
 			return ;
 		}
 		i++;
 	}
+
 	i = 0;
 	while (i < phone.size())
 	{
-		unsigned char c = phone[i]);
+		unsigned char c = phone[i];
 		if (!std::isdigit(c) &&  !(c == ' ')) {
-			std::cout << RED << ""Error: phone number not correct" << RESET << std::endl;
+			cppPrintError("phone number field accepts only digits and space");
 			return ;
 		}
 		i++;
