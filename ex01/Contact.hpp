@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:46:34 by rlobun            #+#    #+#             */
-/*   Updated: 2026/02/18 15:48:32 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/12 15:44:09 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CONTACT_HPP
@@ -23,14 +23,14 @@ public:
 	void setNickname(std::string str);
 	void setPhoneNumber(std::string str);
 	void setDarkestSecret(std::string str);
-	void setTimeCreated(std::time_t creationTime);
+	void setTimeCreated();
 	// getters:
 	std::string getFirstName(void) const;
 	std::string getLastName(void) const;
 	std::string getNickname(void) const;
 	std::string getPhoneNumber(void) const;
 	std::string getDarkestSecret(void) const;
-	std::time_t getTimeCreated(void) const;
+	time_t getTimeCreated(void) const;
 
 private:
 	std::string _firstName, 

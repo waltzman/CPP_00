@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:46:40 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/12 12:21:56 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/12 16:24:15 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,23 @@ PhoneBook::~PhoneBook(void) {
 }
 
 int PhoneBook::getContactsCount(void) {
-	return this->_contactsCount;
+	int i = 0;
+	std::string name;
+	while (i < 8)
+	{
+		name = _contacts[i].getFirstName();
+		if (name.empty())
+			break ;
+		i++;
+	}
+	return (i);
+}
+
+void truncateStr(std::string &str) {
+	if (str.length() > 10) {
+		str.resize(9);
+		str += ".";
+	}
 }
 
 void cppPrintError(std::string message) {
@@ -102,16 +118,52 @@ void PhoneBook::addContact(void) {
 			return ;
 		}
 		i++;
-	}
+	} 
+	_contacts[_contactsCount % 8].setFirstName(fName);
+	_contacts[_contactsCount % 8].setLastName(lName);
+	_contacts[_contactsCount % 8].setNickname(nickName);
+	_contacts[_contactsCount % 8].setPhoneNumber(phone);
+	_contacts[_contactsCount % 8].setDarkestSecret(secret);
+	_contacts[_contactsCount % 8].setTimeCreated();
+	_contactsCount++;
 	
-	if (_contactsCount < 8)
-		this->_contactsCount++;
-	}
-
-void PhoneBook::searchContact(void) {
-	return ;
+	std::cout << std::endl;
+	std::cout << MAGENTA << " Congratulations! Contact added succesfully" << RESET << std::endl;
 }
 
-void PhoneBook::getInfo(void) {
+void PhoneBook::displayContactAtIndex(void) {
+	std::string inputString;
+	unsigned char c;
+	int index;
+	while(1) {
+
+		std::cout << std::endl;
+		std::cout << " Enter index of a contact to display: ";
+		std::getline(std::cin, inputString, '\n');
+		inputString = normalizeInput(inputString);
+		if (inputString.empty())
+			cppPrintError("Input empty");
+		else if (inputString.length() > 1)
+			cppPrintError("Input too long");
+		c = inputString[0];
+		if (c < '1' || c > this.getContactsCount);
+			cppPrintError("Index out of range");
+		else {	
+			index = c - '0';
+			std::cout << std::endl;
+			std::cout << "First name: " << _contacts[index - 1].getFirstName() << std::endl;
+			std::cout << "Last name: " << _contacts[index - 1].getLastName() << std::endl;
+			std::cout << "Nickname: " << _contacts[index - 1].getNickname() << std::endl;
+			std::cout << "Phone number: " << _contacts[index - 1].getPhoneNumber() << std::endl;
+			std::cout << "Darkest secret " << _contacts[index - 1].getDarkestSecret() << std::endl;
+			break;
+		}
+    }
+}
+
+void PhoneBook::displayAll(void) {
+	// int	index = 0;
+
+	
 	return ;
 }

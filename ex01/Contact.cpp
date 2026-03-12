@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:46:36 by rlobun            #+#    #+#             */
-/*   Updated: 2026/02/24 11:31:15 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/12 13:02:04 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,3 +68,6 @@ void	Contact::setDarkestSecret(std::string s) {
 	this->_darkestSecret = s;
 }
 
+void	Contact::setTimeCreated(void) {
+	this->_timeCreated = time(0);
+}
