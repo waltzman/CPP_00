@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:46:36 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/13 12:50:37 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/13 13:22:39 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,6 @@ std::string Contact::getDarkestSecret(void) const {
 
 std::string Contact::getPhoneNumber(void) const {
 	return (this-> _phoneNumber);
-
-}
-time_t		Contact::getTimeCreated(void) const {
-	return (this-> _timeCreated);
 }
 
 // **********   SETTERS   **********
@@ -67,11 +63,6 @@ void	Contact::setPhoneNumber(std::string s) {
 void	Contact::setDarkestSecret(std::string s) {
 	this->_darkestSecret = s;
 }
-
-void	Contact::setTimeCreated(void) {
-	this->_timeCreated = time(0);
-}
-
 
 // **********	PRINT	  **********
 
