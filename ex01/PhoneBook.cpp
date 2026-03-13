@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:46:40 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/13 11:31:43 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/13 13:18:52 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void PhoneBook::addContact(void) {
 	getInput(ok, lName, "last name");
 	getInput(ok, nickName, "nickname");
 	getInput(ok, phone, "phone number");
-	getInput(ok, secret, "darkest secret:");
+	getInput(ok, secret, "darkest secret");
 
 	if (!ok) 
 	{
@@ -102,7 +102,6 @@ void PhoneBook::addContact(void) {
 	_contacts[_contactsCount % 8].setNickname(nickName);
 	_contacts[_contactsCount % 8].setPhoneNumber(phone);
 	_contacts[_contactsCount % 8].setDarkestSecret(secret);
-	_contacts[_contactsCount % 8].setTimeCreated();
 	_contactsCount++;
 	
 	std::cout << std::endl;
@@ -151,8 +150,20 @@ void PhoneBook::displayContactAtIndex(void) {
 }
 
 void PhoneBook::displayAll(void) {
-	// int	index = 0;
+	int count = this->getContactsCount();
+	std::cout << std::endl;
+	if (count == 0) {
+		std::cout << " NO CONTACTS TO DISPLAY !" << std::endl;
+		return ;
+	}
 
-	
+	std::cout << " " << std::setfill('-') << std::setw(42);
+	std::cout << "" << std::setfill(' ') << std::endl;
+	int	i = 0;
+	while (i < count) {
+		std::cout << std::right << std::setw(10) << i + 1 << "|";
+		_contacts[i].display();;
+		i++;
+	}
 	return ;
 }

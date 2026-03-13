@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:46:36 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/13 11:32:40 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/13 12:50:37 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,16 @@ void	Contact::setDarkestSecret(std::string s) {
 
 void	Contact::setTimeCreated(void) {
 	this->_timeCreated = time(0);
+}
+
+
+// **********	PRINT	  **********
+
+void	Contact::display(void) {
+	std::cout << std::right << std::setw(10) << truncateStr(this->getFirstName());
+	std::cout << "|";
+	std::cout << std::right << std::setw(10) << truncateStr(this->getLastName());
+	std::cout << "|";
+	std::cout << std::right << std::setw(10) << truncateStr(this->getNickname());
+	std::cout << std::endl;
 }

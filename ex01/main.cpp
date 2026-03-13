@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 11:40:13 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/13 11:23:06 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/13 12:49:08 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	main()
 		}
 		else if (inputString.compare("SEARCH") == 0) {
 			book.displayAll();
+			if (book.getContactsCount() == 0)
+				continue ;
 			book.displayContactAtIndex();
 		}
 		else if (inputString.compare("EXIT") == 0)

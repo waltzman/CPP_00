@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 11:13:20 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/13 11:25:48 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/13 12:14:15 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@
 void displayHeader(void);
 void displayOption(void); 
 void displayMenu(void);
-void truncateStr(std::string &str);
+std::string  truncateStr(const std::string &str);
 void cppPrintError(std:: string message);
 void getInput(bool& error, std::string& field, std::string message);
 

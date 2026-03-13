@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 11:40:34 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/13 10:48:03 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/13 12:16:39 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,13 @@ std::string normalizeInput(const std::string& input) {
     return result;
 }
 
-void truncateStr(std::string &str) {
-    if (str.length() > 10) {
-        str.resize(9);
-        str += ".";
+std::string truncateStr(const std::string &str) {
+    std::string res = str;
+	if (res.length() > 10) {
+        res.resize(9);
+        res += ".";
     }
+	return res;
 }
 
 void cppPrintError(std::string message) {
