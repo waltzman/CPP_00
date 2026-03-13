@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 11:40:34 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/10 13:07:16 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/13 10:48:03 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,22 +50,41 @@ void clearScreenANSI() {
     std::cout << "\033[2J\033[1;1H";
 }
 
-std::string normalizeInput(const std::string& input)
-{
-    std::stringstream ss(input);
+std::string normalizeInput(const std::string& input) {
+	std::string cut = input.substr(0,120);
+    std::stringstream ss(cut);
     std::string word;
     std::string result;
     bool first = true;
 
-    while (ss >> word)           // skip whitespaces
+    while (ss >> word)
     {
         if (!first)
             result += " ";
-
         result += word;
         first = false;
     }
-
     return result;
 }
 
+void truncateStr(std::string &str) {
+    if (str.length() > 10) {
+        str.resize(9);
+        str += ".";
+    }
+}
+
+void cppPrintError(std::string message) {
+    std::cout << std::endl;
+    std::cout << RED;
+    std::cout << " Error: " << message;
+    std::cout << RESET << std::endl;
+}
+void getInput(bool& ok, std::string& field, std::string message) {
+    std::cout << " Enter " << message << ": ";
+    std::getline(std::cin, field, '\n');
+    field = normalizeInput(field);
+    if (field.empty()) {
+        ok = false;
+    }
+}

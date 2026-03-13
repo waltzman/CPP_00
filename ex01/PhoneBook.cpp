@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:46:40 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/12 16:24:15 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/13 11:31:43 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,6 @@ int PhoneBook::getContactsCount(void) {
 	return (i);
 }
 
-void truncateStr(std::string &str) {
-	if (str.length() > 10) {
-		str.resize(9);
-		str += ".";
-	}
-}
-
-void cppPrintError(std::string message) {
-	std::cout << std::endl;
-	std::cout << RED BOLD;
-	std::cout << " Error: " << message;
-	std::cout << RESET << std::endl;
-}
-void getInput(bool& ok, std::string& field, std::string message) {
-	std::cout << " Enter " << message << ": ";
-	std::getline(std::cin, field, '\n');
-	field = normalizeInput(field);
-	if (field.empty()) {
-		ok = false;
-	}
-}
-
 void PhoneBook::addContact(void) {
 	std::string fName;
 	std::string lName;
@@ -71,7 +49,7 @@ void PhoneBook::addContact(void) {
 	getInput(ok, lName, "last name");
 	getInput(ok, nickName, "nickname");
 	getInput(ok, phone, "phone number");
-	getInput(ok, secret, "darkest secret");
+	getInput(ok, secret, "darkest secret:");
 
 	if (!ok) 
 	{
@@ -128,7 +106,7 @@ void PhoneBook::addContact(void) {
 	_contactsCount++;
 	
 	std::cout << std::endl;
-	std::cout << MAGENTA << " Congratulations! Contact added succesfully" << RESET << std::endl;
+	std::cout << ORANGE << " Congratulations! Contact added succesfully" << RESET << std::endl;
 }
 
 void PhoneBook::displayContactAtIndex(void) {
@@ -141,21 +119,32 @@ void PhoneBook::displayContactAtIndex(void) {
 		std::cout << " Enter index of a contact to display: ";
 		std::getline(std::cin, inputString, '\n');
 		inputString = normalizeInput(inputString);
-		if (inputString.empty())
+		if (inputString.empty()) {
 			cppPrintError("Input empty");
-		else if (inputString.length() > 1)
+			continue ;
+		}
+		else if (inputString.length() > 1) {
 			cppPrintError("Input too long");
+			continue ;
+		}
 		c = inputString[0];
-		if (c < '1' || c > this.getContactsCount);
+		if (c == 'e')
+			break ;
+		if (c < '0' || c > '9') {
+			cppPrintError("Enter an integer");
+			continue ;
+		}
+		index = c - '0';
+		if (index  < 1 || index  > this->getContactsCount())
 			cppPrintError("Index out of range");
 		else {	
 			index = c - '0';
 			std::cout << std::endl;
-			std::cout << "First name: " << _contacts[index - 1].getFirstName() << std::endl;
-			std::cout << "Last name: " << _contacts[index - 1].getLastName() << std::endl;
-			std::cout << "Nickname: " << _contacts[index - 1].getNickname() << std::endl;
-			std::cout << "Phone number: " << _contacts[index - 1].getPhoneNumber() << std::endl;
-			std::cout << "Darkest secret " << _contacts[index - 1].getDarkestSecret() << std::endl;
+			std::cout << " First name:     " << _contacts[index - 1].getFirstName() << std::endl;
+			std::cout << " Last name:      " << _contacts[index - 1].getLastName() << std::endl;
+			std::cout << " Nickname:       " << _contacts[index - 1].getNickname() << std::endl;
+			std::cout << " Phone number:   " << _contacts[index - 1].getPhoneNumber() << std::endl;
+			std::cout << " Darkest secret: " << _contacts[index - 1].getDarkestSecret() << std::endl;
 			break;
 		}
     }

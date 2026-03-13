@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:46:36 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/12 13:02:04 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/13 11:32:40 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ std::string Contact::getNickname(void) const {
 }
 
 std::string Contact::getDarkestSecret(void) const {
-	return (this-> _nickname);
+	return (this-> _darkestSecret);
 }
 
 std::string Contact::getPhoneNumber(void) const {
