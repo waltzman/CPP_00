@@ -10,6 +10,8 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	@$(CC) $(CPP_FLAGS) $(OBJS) -o $(TARGET)
 
+%.o: %.cpp
+	$(CPP) $(CPP_FLAGS) -c $< -o $@
 clean:
 	@rm -rf $(OBJS)
 

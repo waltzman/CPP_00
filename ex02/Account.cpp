@@ -6,13 +6,12 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 12:53:30 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/15 17:44:06 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/15 18:08:31 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
-#include <string>
 #include <iomanip>
 #include <ctime>
 
