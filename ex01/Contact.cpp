@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:46:36 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/13 13:22:39 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/15 12:44:17 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ void	Contact::setDarkestSecret(std::string s) {
 // **********	PRINT	  **********
 
 void	Contact::display(void) {
-	std::cout << std::right << std::setw(10) << truncateStr(this->getFirstName());
+	std::cout << std::right << std::setw(10) << truncateStr(getFirstName());
 	std::cout << "|";
-	std::cout << std::right << std::setw(10) << truncateStr(this->getLastName());
+	std::cout << std::right << std::setw(10) << truncateStr(getLastName());
 	std::cout << "|";
-	std::cout << std::right << std::setw(10) << truncateStr(this->getNickname());
+	std::cout << std::right << std::setw(10) << truncateStr(getNickname());
 	std::cout << std::endl;
 }

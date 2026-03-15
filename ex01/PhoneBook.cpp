@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:46:40 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/13 13:18:52 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/15 12:41:44 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void PhoneBook::addContact(void) {
 	getInput(ok, phone, "phone number");
 	getInput(ok, secret, "darkest secret");
 
-	if (!ok) 
+	if (!ok)
 	{
 		cppPrintError("empty field");
 		return ;
@@ -96,14 +96,14 @@ void PhoneBook::addContact(void) {
 			return ;
 		}
 		i++;
-	} 
+	}
 	_contacts[_contactsCount % 8].setFirstName(fName);
 	_contacts[_contactsCount % 8].setLastName(lName);
 	_contacts[_contactsCount % 8].setNickname(nickName);
 	_contacts[_contactsCount % 8].setPhoneNumber(phone);
 	_contacts[_contactsCount % 8].setDarkestSecret(secret);
 	_contactsCount++;
-	
+
 	std::cout << std::endl;
 	std::cout << ORANGE << " Congratulations! Contact added succesfully" << RESET << std::endl;
 }
@@ -136,7 +136,7 @@ void PhoneBook::displayContactAtIndex(void) {
 		index = c - '0';
 		if (index  < 1 || index  > this->getContactsCount())
 			cppPrintError("Index out of range");
-		else {	
+		else {
 			index = c - '0';
 			std::cout << std::endl;
 			std::cout << " First name:     " << _contacts[index - 1].getFirstName() << std::endl;
@@ -165,5 +165,7 @@ void PhoneBook::displayAll(void) {
 		_contacts[i].display();;
 		i++;
 	}
+	std::cout << " " << std::setfill('-') << std::setw(42);
+	std::cout << "" << std::setfill(' ') << std::endl;
 	return ;
 }

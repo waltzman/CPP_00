@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 11:40:13 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/13 12:49:08 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/15 12:48:28 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main()
 	displayHeader();
 	displayMenu();
 	PhoneBook	book;
-	
+
 	while (1)
 	{
 		std::cout << std::endl;
@@ -32,7 +32,7 @@ int	main()
 		std::cout << RESET_BOLD RESET_ITALIC << std::endl;
 		std::cout << RESET;
 		std::cout << std::endl;
-		std::cout << " Enter your command: "; 
+		std::cout << " Enter your command: ";
 		std::getline(std::cin, inputString, '\n');
 		inputString = normalizeInput(inputString);
 
@@ -47,14 +47,6 @@ int	main()
 		}
 		else if (inputString.compare("EXIT") == 0)
 			break ;
-
-		else {
-			std::cout << std::endl;
-			std::cout << RED << " ERROR: This command does not exist." << std::endl;
-			std::cout << " Press " << BOLD << "ENTER"<< RESET_BOLD << " to continue..." << RESET;
-			std::cout << "         ";
-			std::cin.ignore( std::numeric_limits <std::streamsize> ::max(), '\n'); 
-		}
 	}
 	std::cout << RESET_CURSOR;
 	std::cout << RESET DISABLE_ALT_BUFFER;

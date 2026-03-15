@@ -1,6 +1,6 @@
 CPP = c++
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
-TARGET = PhoneBook
+TARGET = Phonebook
 INC = app.hpp
 SRCS = main.cpp Contact.cpp PhoneBook.cpp utils.cpp
 OBJS = $(SRCS:.cpp=.o)
