@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 12:53:30 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/16 11:52:44 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/16 12:12:20 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ Account::Account(int initial_deposit) {
 	_nbWithdrawals = 0;
 
 	_displayTimestamp();
-	std::cout << "index" << _accountIndex
+	std::cout << "index:" << _accountIndex
 			  << ";amount:" << _amount
 			  << ";created" << std::endl;
 }
