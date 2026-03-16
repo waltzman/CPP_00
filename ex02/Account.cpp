@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 12:53:30 by rlobun            #+#    #+#             */
-/*   Updated: 2026/03/15 18:20:19 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/03/16 11:52:44 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void Account::_displayTimestamp(void) {
 			  << std::setw(2) << std::setfill('0') << t->tm_hour
 			  << std::setw(2) << std::setfill('0') << t->tm_min
 			  << std::setw(2) << std::setfill('0') << t->tm_sec
-			  << "]";
+			  << "] ";
 }
 
 Account::Account(int initial_deposit) {
@@ -81,7 +81,7 @@ void Account::displayAccountsInfos(void) {
 
     std::cout << "accounts:" << getNbAccounts()
               << ";total:" << getTotalAmount()
-              << ";deposits:" << getNbDeposits()
+			  << ";deposits:" << getNbDeposits()
               << ";withdrawals:" << getNbWithdrawals()
               << std::endl;
 }
@@ -90,7 +90,7 @@ void Account::displayAccountsInfos(void) {
 //     member functions
 
 
-void Account::displayStatus(void) const {
+void Account::displayStatus(void) const{
 	_displayTimestamp();
 
 	std::cout << "index:" << _accountIndex
